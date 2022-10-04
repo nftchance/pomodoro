@@ -16,7 +16,7 @@ const ScheduleController = ({ schedule, setSchedule }) => {
             />
 
             <Input
-                label="Work Period Length"
+                label="Work Period Duration (Minutes)"
                 name="workPeriodLength"
                 type="number"
                 value={schedule.workPeriodLength}
@@ -24,7 +24,7 @@ const ScheduleController = ({ schedule, setSchedule }) => {
             />
 
             <Input
-                label="Break Period Length"
+                label="Break Period Duration (Minutes)"
                 name="breakPeriodLength"
                 type="number"
                 value={schedule.breakPeriodLength}
@@ -32,7 +32,7 @@ const ScheduleController = ({ schedule, setSchedule }) => {
             />
 
             <Input 
-                label="Long Break Period Length"
+                label="Long Break Period Duration (Minutes)"
                 name="longBreakPeriodLength"
                 type="number"
                 value={schedule.longBreakPeriodLength}
