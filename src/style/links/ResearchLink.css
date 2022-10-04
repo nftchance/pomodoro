@@ -1,0 +1,21 @@
+.research__link {
+    color: rgba(255, 255, 255, .25);
+    cursor: pointer;
+}
+
+.research__link * { 
+    transition: all .1s ease-in-out;
+}
+
+.research__link .link {
+    color: rgb(255, 0, 225, .85);
+    text-decoration: none;
+}
+
+.research__link:hover {
+    color: rgba(255, 255, 255, .15);
+}
+
+.research__link:hover .link {
+    color: rgba(255, 0, 255);
+}

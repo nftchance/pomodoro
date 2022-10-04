@@ -1,0 +1,25 @@
+.landing { }
+
+.landing .container {}
+
+.landing__container__header {
+    align-content: center;
+    display: grid;
+    height: 40vh;
+    min-height: 350px;
+}
+
+.landing__container__header p { 
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.landing__container__header__buttons { 
+    display: flex;
+}
+
+.landing__container__header__buttons button { 
+    height: fit-content;
+    margin-bottom: 1rem;
+    margin-top: auto;
+}
