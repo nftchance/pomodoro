@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import Button from '../forms/Button';
 import Input from '../forms/Input';
@@ -9,7 +10,9 @@ import ScheduleController from '../controllers/ScheduleController';
 
 import "../../style/landing/Landing.css";
 
-const Landing = () => {
+const Landing = (props) => {
+    const navigate = useNavigate();
+
     const [roomCode, setRoomCode] = useState("");
 
     const [schedule, setSchedule] = useState({
@@ -24,14 +27,22 @@ const Landing = () => {
         setRoomCode(roomCode.toUpperCase().substring(0, 8).replace(/[^A-Z]/g, ""));
     }
 
+    const onRoomJoin = () => { 
+        navigate(`/room/${roomCode}`);
+    }
+
+    const onRoomCreate = () => {
+        // post into api and wait to get back the room code
+    }
+
     return (
         <div className="landing">
             <div className="container">
                 <div className="landing__container__header">
                     <h1 className="landing__container__header__title">
-                        <ResearchLink>Hyper Pomodoro</ResearchLink>
+                        Turbocharge yours and your groups efficiency with <ResearchLink internal={true} to={"/"}>Hyper Pomodoro</ResearchLink>.
                     </h1>
-                    <p className="landing__container__header__subtitle">Forget timezones. Sync yours or a groups workflow on one schedule.</p>
+                    <p className="landing__container__header__subtitle">Forget timezones. Sync flow on one schedule with regular fatigue-preventing breaks and enjoy a group-working experience like no other.</p>
 
                     {/* Join room button followed by a create room button */}
                     <div className="landing__container__header__buttons">
@@ -43,7 +54,10 @@ const Landing = () => {
                             value={roomCode}
                             onChange={e => onRoomCodeChange(e.target.value)}
                         />
-                        <Button className="button button__primary">Join Room</Button>
+                        <Button 
+                            className="button button__primary"
+                            onClick={onRoomJoin}
+                        >Join Room</Button>
                     </div>
                 </div>
 
