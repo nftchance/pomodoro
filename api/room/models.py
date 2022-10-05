@@ -19,7 +19,6 @@ class Room(models.Model):
     room_code = models.CharField(max_length=8)
 
     work_periods = models.IntegerField(default=4)
-
     work_period_duration = models.IntegerField(default=25)
     break_period_duration = models.IntegerField(default=5)
     long_break_period_duration = models.IntegerField(default=15)

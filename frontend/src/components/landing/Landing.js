@@ -16,23 +16,36 @@ const Landing = (props) => {
     const [roomCode, setRoomCode] = useState("");
 
     const [schedule, setSchedule] = useState({
-        workPeriods: 4,
-        workPeriodLength: 25,
-        breakPeriodLength: 5,
-        longBreakPeriodLength: 15,
-        startTime: "09:00"
+        work_periods: 4,
+        work_period_duration: 25,
+        break_period_duration: 5,
+        long_break_period_duration: 15,
+        start_time: "2022-10-04T19:28:00Z"
     });
 
-    const onRoomCodeChange = (roomCode) => { 
+    const onRoomCodeChange = (roomCode) => {
         setRoomCode(roomCode.toUpperCase().substring(0, 8).replace(/[^A-Z]/g, ""));
     }
 
-    const onRoomJoin = () => { 
+    const onRoomJoin = () => {
         navigate(`/room/${roomCode}`);
     }
 
     const onRoomCreate = () => {
+        console.log('here')
+
         // post into api and wait to get back the room code
+        fetch("http://localhost:8000/room/", {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                navigate(`/room/${data.room_code}`);
+            });
     }
 
     return (
@@ -54,7 +67,7 @@ const Landing = (props) => {
                             value={roomCode}
                             onChange={e => onRoomCodeChange(e.target.value)}
                         />
-                        <Button 
+                        <Button
                             className="button button__primary"
                             onClick={onRoomJoin}
                         >Join Room</Button>
@@ -63,7 +76,11 @@ const Landing = (props) => {
 
                 <h2>
                     Create your <ResearchLink>Pods</ResearchLink> <ResearchLink>Pomodoro Schedule</ResearchLink></h2>
-                <ScheduleController schedule={schedule} setSchedule={setSchedule} />
+                <ScheduleController
+                    schedule={schedule}
+                    setSchedule={setSchedule}
+                    onRoomCreate={onRoomCreate}
+                />
             </div>
         </div>
     );

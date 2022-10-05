@@ -6,7 +6,8 @@
     align-content: center;
     display: grid;
     height: 40vh;
-    min-height: 350px;
+    min-height: 450px;
+    margin-bottom: 40px;
 }
 
 .landing__container__header p { 
