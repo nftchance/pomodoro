@@ -11,8 +11,9 @@
 html,
 body {
 	background: rgb(20, 20, 20);
-	color: rgba(255, 255, 255, .65);
-	height: 100%;
+	color: rgba(255, 255, 255, .45);
+	min-height: 100%;
+	padding-bottom: 40px;
 }
 
 h1 { 
@@ -41,4 +42,9 @@ h6 *,
 strong,
 strong * {
 	font-weight: 700;
+}
+
+p span { 
+	color: rgba(255, 255, 255, .85);
+	float: right;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 import Button from '../forms/Button';
@@ -22,7 +22,6 @@ const Landing = (props) => {
         long_break_period_duration: 15,
         start_time: "2022-10-04T19:28:00Z"
     });
-
     const onRoomCodeChange = (roomCode) => {
         setRoomCode(roomCode.toUpperCase().substring(0, 8).replace(/[^A-Z]/g, ""));
     }
@@ -75,7 +74,9 @@ const Landing = (props) => {
                 </div>
 
                 <h2>
-                    Create your <ResearchLink>Pods</ResearchLink> <ResearchLink>Pomodoro Schedule</ResearchLink></h2>
+                    Create your <ResearchLink>Pods</ResearchLink> <ResearchLink>Pomodoro Schedule</ResearchLink>
+                </h2>
+
                 <ScheduleController
                     schedule={schedule}
                     setSchedule={setSchedule}

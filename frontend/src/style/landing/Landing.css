@@ -1,5 +1,3 @@
-.landing { }
-
 .landing .container {}
 
 .landing__container__header {
@@ -8,6 +6,7 @@
     height: 40vh;
     min-height: 450px;
     margin-bottom: 40px;
+    max-width: 65%;
 }
 
 .landing__container__header p { 
@@ -23,4 +22,10 @@
     height: fit-content;
     margin-bottom: 1rem;
     margin-top: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .landing__container__header { 
+        max-width: 100%;
+    }
 }

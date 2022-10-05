@@ -6,6 +6,11 @@ class RoomSerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField()
     room_code = serializers.ReadOnlyField()
 
+    periods = serializers.SerializerMethodField()
+
+    def get_periods(self, obj):
+        return obj.periods
+
     class Meta:
         model = Room
         fields = (
@@ -16,4 +21,5 @@ class RoomSerializer(serializers.ModelSerializer):
             'break_period_duration',
             'long_break_period_duration',
             'start_time',
+            'periods',
         )
